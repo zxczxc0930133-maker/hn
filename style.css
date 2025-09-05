@@ -1,113 +1,64 @@
-/* القاعدة العامة */
+/* styles.css */
 body {
-    font-family: 'Cairo', Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    transition: background 0.3s, color 0.3s;
 }
 
-/* الوضع الفاتح */
-body.light {
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
-    color: #2d3436;
-}
-
-body.light .container {
-    background: #fff;
-    color: #2d3436;
-}
-
-/* الوضع الغامق */
-body.dark {
-    background: linear-gradient(135deg, #2d3436, #000000);
-    color: #dfe6e9;
-}
-
-body.dark .container {
-    background: #1e272e;
-    color: #dfe6e9;
-}
-
-/* الصندوق */
 .container {
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    animation: fadeIn 0.8s ease-in-out;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
 }
 
-/* العناوين */
 h1 {
-    text-align: center;
+    font-size: 24px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* الليبل */
-label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* الحقول */
 input {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #dcdde1;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: all 0.3s ease;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-input:focus {
-    border-color: #0984e3;
-    box-shadow: 0 0 6px rgba(9, 132, 227, 0.5);
-    outline: none;
-}
-
-/* الأزرار */
 button {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #6c5ce7, #0984e3);
+    background-color: #007BFF;
     border: none;
-    color: #fff;
-    font-size: 15px;
-    border-radius: 8px;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background: linear-gradient(135deg, #4834d4, #0652dd);
-    transform: translateY(-2px);
+    background-color: #0056b3;
 }
 
-/* زر تغيير الوضع */
-.toggle-mode {
+p {
     margin-top: 10px;
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    background: #636e72;
-    color: #fff;
-    transition: 0.3s;
+    text-align: center;
 }
 
-.toggle-mode:hover {
-    background: #2d3436;
+a {
+    color: #007BFF;
+    text-decoration: none;
 }
 
-/* الأنميشن */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+a:hover {
+    text-decoration: underline;
 }

@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="ar">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول</title>
+    <title>تسجيل الدخول - اخدم من حوشك</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="container">
+    <div class="container" id="login-container">
+        <h1>تسجيل الدخول</h1>
+        <input type="text" id="login-email" placeholder="البريد الإلكتروني أو رقم الهاتف" required>
+        <input type="password" id="login-password" placeholder="كلمة المرور" required>
+        <button onclick="login()">تسجيل الدخول</button>
+        <p>ليس لديك حساب؟ <a href="#" onclick="showCreateAccount()">إنشاء حساب</a></p>
+    </div>
+
+    <div class="container" id="create-account-container" style="display:none;">
         <h1>إنشاء حساب</h1>
-        <form id="signup-form">
-            <label for="username">اسم المستخدم:</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" name="password" required>
-
-            <button type="submit">إنشاء حساب</button>
-        </form>
+        <input type="text" id="name" placeholder="اسم الشخص" required>
+        <input type="text" id="email" placeholder="البريد الإلكتروني أو رقم الهاتف" required>
+        <input type="password" id="password" placeholder="كلمة المرور" required>
+        <button onclick="createAccount()">إنشاء حساب</button>
+        <p>لديك حساب؟ <a href="#" onclick="showLogin()">تسجيل الدخول</a></p>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
